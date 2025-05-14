@@ -105,8 +105,7 @@
         result(uploadedDocument, userConsole);
         log('=== 実行結果 ===\n' + logBuffer.join('\n'));
 
-        // ダウンロード用処理もつけとく（JSON）
-        const blob = new Blob([JSON.stringify(logBuffer, null, 2)], { type: 'application/json' });
+        const blob = new Blob([logBuffer.join('\n')], { type: 'application/json' });
         const a = document.createElement('a');
         a.href = URL.createObjectURL(blob);
         a.download = 'result.json';
